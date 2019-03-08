@@ -1,9 +1,7 @@
-package main.java.com.crudconsoleapp;
+package main.java.com.crudconsoleapp.model;
 
 
-import java.io.Serializable;
-
-public class Skill implements Serializable{
+public class Skill {
     private Long id;
     private String name;
 

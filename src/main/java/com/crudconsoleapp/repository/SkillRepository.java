@@ -1,11 +1,13 @@
-package main.java.com.crudconsoleapp;
+package main.java.com.crudconsoleapp.repository;
+
+import main.java.com.crudconsoleapp.model.Skill;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
-class SkillRepository {
+ public class SkillRepository {
     private static final String FILE_PATH = "D:\\JavaCourse\\CRUDConsoleApp\\src\\main\\resourses\\files\\skills.txt";
 
     public List<Skill> getAll() {
@@ -45,17 +47,18 @@ class SkillRepository {
         return null;
     }
 
-    void saveSkill(Skill skill) {
+    public Skill save(Skill skill) {
         try(BufferedWriter bufferWriter = new BufferedWriter(new FileWriter(FILE_PATH, true))) {
-            String s = "\n" + skill.getId().toString() + "," + skill.getName() + "/";
+            String s = skill.getId().toString() + "," + skill.getName() + "/";
             bufferWriter.write(s);
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+        return skill;
     }
 
-    void deleteSkillById (Long id) {
+    public void delete (Long id) {
         String saveSkillLine = null;
         StringBuffer stringBuffer = new StringBuffer();
         try (BufferedReader reader = new BufferedReader(new FileReader(new File(FILE_PATH)))) {
@@ -79,7 +82,7 @@ class SkillRepository {
         }
     }
 
-    void deleteSkillByObject (Skill skill) {
+    public void delete (Skill skill) {
         String saveSkillLine = null;
         StringBuffer stringBuffer = new StringBuffer();
         try (BufferedReader reader = new BufferedReader(new FileReader(new File(FILE_PATH)))) {
@@ -102,7 +105,7 @@ class SkillRepository {
         }
     }
 
-    void updateSkill (Skill skill) {
+    public Skill update (Skill skill) {
         String saveSkillLine = null;
         StringBuffer stringBuffer = new StringBuffer();
         try (BufferedReader reader = new BufferedReader(new FileReader(new File(FILE_PATH)))) {
@@ -126,5 +129,6 @@ class SkillRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return skill;
     }
 }
