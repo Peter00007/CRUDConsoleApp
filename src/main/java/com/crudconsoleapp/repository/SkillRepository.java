@@ -26,7 +26,6 @@ import java.util.List;
         return list;
     }
 
-
     public Skill getById(Long id) {
         Skill skill;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(FILE_PATH))) {
