@@ -16,7 +16,7 @@ import java.util.List;
             String skillFileContent;
             while ((skillFileContent = bufferedReader.readLine()) != null) {
                 String[] skillRecords = skillFileContent.split(",");
-                list.add(new Skill(Long.parseLong(skillRecords[0]), skillRecords[1]));
+                list.add(new Skill(Long.parseLong(skillRecords[0]), skillRecords[1].substring(0, skillRecords[1].length() - 1)));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -34,7 +34,7 @@ import java.util.List;
                 String[] skillRecords = skillFileContent.split(",");
                 Long equalsId = Long.parseLong(skillRecords[0]);
                 if (equalsId == id) {
-                    skill = new Skill(Long.parseLong(skillRecords[0]), skillRecords[1]);
+                    skill = new Skill(Long.parseLong(skillRecords[0]), skillRecords[1].substring(0, skillRecords[1].length() - 1));
                     return skill;
                 }
             }

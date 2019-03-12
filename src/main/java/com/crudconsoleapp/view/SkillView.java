@@ -28,11 +28,11 @@ public class SkillView {
     public void startCRUD() {
         System.out.println(start);
         try {
-            int i;
+            int pointer;
             do {
                 String getData = in.next();
                 int number = Integer.parseInt(getData);
-                i = number;
+                pointer = number;
                 switch (number) {
                     case 1:
                         System.out.println(getSkillByIdMessage);
@@ -49,7 +49,7 @@ public class SkillView {
                         getAllSkill();
                         break;
                     case 3:
-                        System.out.println("Create Skill\n"+ createSkillMessageId);
+                        System.out.println("Create Skill\n" + createSkillMessageId);
                         String getIdSkill = in.next();
                         System.out.println(createSkillMessageName);
                         String getNameSkill = in.next();
@@ -76,14 +76,16 @@ public class SkillView {
                         break;
                     case 5:
                         System.out.println(choiceDeleteMessage);
-                        String choiceCount = in.next();
                         try {
-                            int count = Integer.parseInt(choiceCount);
+                            int index;
                             do {
+                                String choiceCount = in.next();
+                                int count = Integer.parseInt(choiceCount);
+                                index = count;
                                 if (count == 1) {
                                     System.out.println(createSkillMessageId);
-                                    String deleteId = in.next();
                                     try {
+                                        String deleteId = in.next();
                                         Long getDeleteId = Long.parseLong(deleteId);
                                         deleteById(getDeleteId);
                                     } catch (Exception e) {
@@ -103,38 +105,39 @@ public class SkillView {
                                         e.printStackTrace();
                                     }
                                 }
-                            } while (count != 1 || count != 2);
+                            } while ((index != 1) && (index != 2));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+                        break;
                 }
-            } while (i < 1 || i > 5);
+            } while (pointer < 1 || pointer > 5);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    void getByIdSkill (Long id) {
-        skillController.getById(id);
+    void getByIdSkill(Long id) {
+        System.out.println(skillController.getById(id));
     }
 
-    void getAllSkill () {
-        skillController.getSkill();
+    void getAllSkill() {
+        System.out.println(skillController.getSkill());
     }
 
     void createSkill(Skill skill) {
-        skillController.createSkill(skill);
+        System.out.println(skillController.createSkill(skill));
     }
 
-    void updateSkill (Skill skill) {
-        skillController.updateSkill(skill);
+    void updateSkill(Skill skill) {
+        System.out.println(skillController.updateSkill(skill));
     }
 
-    void deleteById (Long id) {
+    void deleteById(Long id) {
         skillController.deleteByIdSkill(id);
     }
 
-    void deleteSkill (Skill skill) {
+    void deleteSkill(Skill skill) {
         skillController.deleteSkill(skill);
     }
 }
