@@ -48,7 +48,7 @@ import java.util.List;
 
     public Skill save(Skill skill) {
         try(BufferedWriter bufferWriter = new BufferedWriter(new FileWriter(FILE_PATH, true))) {
-            String s = skill.getId().toString() + "," + skill.getName() + "/";
+            String s = skill.getId().toString() + "," + skill.getName() + "/\n";
             bufferWriter.write(s);
         }
         catch (IOException e) {
