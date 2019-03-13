@@ -1,2 +1,1 @@
-1,Peter/
 2,Vasya/

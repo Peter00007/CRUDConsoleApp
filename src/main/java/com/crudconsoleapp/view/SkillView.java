@@ -6,21 +6,26 @@ import main.java.com.crudconsoleapp.model.Skill;
 import java.util.Scanner;
 
 public class SkillView {
-    Scanner in = new Scanner(System.in);
-    SkillController skillController = new SkillController();
+    Scanner in;
+    SkillController skillController;
 
-    private String start = "Enter:\n" +
+    public SkillView () {
+        in = new Scanner(System.in);
+        skillController = new SkillController();
+    }
+
+    private final String start = "Enter:\n" +
             "1 if you want Get skill by ID\n" +
             "2 if you want Get all skills\n" +
             "3 if you want Create skill\n" +
             "4 if you want Update skill\n" +
             "5 if you want Delete skill";
 
-    private String getSkillByIdMessage = "Input Id our Skill:";
-    private String getAllSkillMessage = "Get our All Skill:";
-    private String createSkillMessageId = "Input Id:";
-    private String createSkillMessageName = "Input Name:";
-    private String choiceDeleteMessage = "Enter:\n" +
+    private final String getSkillByIdMessage = "Input Id our Skill:";
+    private final String getAllSkillMessage = "Get our All Skill:";
+    private final String createSkillMessageId = "Input Id:";
+    private final String createSkillMessageName = "Input Name:";
+    private final String choiceDeleteMessage = "Enter:\n" +
             "1 if you want delete Skill by Id\n" +
             "2 if you want delete Skill by Skill";
 
