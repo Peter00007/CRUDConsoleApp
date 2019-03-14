@@ -1,7 +1,7 @@
 package main.java.com.crudconsoleapp.repository;
 
 
-import main.java.com.crudconsoleapp.AccountStatus;
+import main.java.com.crudconsoleapp.model.AccountStatus;
 import main.java.com.crudconsoleapp.model.Account;
 
 import java.io.*;

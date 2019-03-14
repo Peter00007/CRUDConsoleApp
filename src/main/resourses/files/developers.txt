@@ -1,1 +1,2 @@
-2,aaa,aa,aa,{1,2},2/
+1,Peter,Fediuk,IT,{3,2,1},1/
+2,Vsya,Va,Geo,{4,2,1},2/

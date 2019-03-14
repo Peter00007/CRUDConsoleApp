@@ -1,7 +1,7 @@
 package main.java.com.crudconsoleapp.view;
 
 
-import main.java.com.crudconsoleapp.AccountStatus;
+import main.java.com.crudconsoleapp.model.AccountStatus;
 import main.java.com.crudconsoleapp.controller.AccountController;
 import main.java.com.crudconsoleapp.model.Account;
 

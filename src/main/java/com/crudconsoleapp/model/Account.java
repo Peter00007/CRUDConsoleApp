@@ -1,7 +1,5 @@
 package main.java.com.crudconsoleapp.model;
 
-import main.java.com.crudconsoleapp.AccountStatus;
-
 public class Account {
     private Long id;
     private AccountStatus accountStatus;

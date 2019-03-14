@@ -56,7 +56,13 @@ public class DeveloperRepository {
                 Long equalsId = Long.parseLong(developerRecords[0]);
                 if (equalsId == id) {
                     Set<Skill> set = new HashSet<>();
-                    set.add(skillRepository.getById(Long.parseLong(developerRecords[4].substring(1, developerRecords[4].length()))));
+                    int index = developerRecords.length - 5;
+                    if (index == 1) {
+                    set.add(skillRepository.getById(Long.parseLong(developerRecords[4].substring(1, developerRecords[4].length() - 1))));
+                    }
+                    else {
+                        set.add(skillRepository.getById(Long.parseLong(developerRecords[4].substring(1, developerRecords[4].length()))));
+                    }
                     for (int i = 5; i < developerRecords.length - 1; i++) {
                         if (i == developerRecords.length - 2) {
                             set.add(skillRepository.getById(Long.parseLong(developerRecords[i].substring(0, developerRecords[i].length() - 1))));

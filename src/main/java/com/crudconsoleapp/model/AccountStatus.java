@@ -1,4 +1,4 @@
-package main.java.com.crudconsoleapp;
+package main.java.com.crudconsoleapp.model;
 
 public enum AccountStatus {
     ACTIVE,
