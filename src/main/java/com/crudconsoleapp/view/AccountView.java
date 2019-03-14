@@ -1,6 +1,7 @@
 package main.java.com.crudconsoleapp.view;
 
 
+import main.java.com.crudconsoleapp.AccountStatus;
 import main.java.com.crudconsoleapp.controller.AccountController;
 import main.java.com.crudconsoleapp.model.Account;
 
@@ -67,7 +68,7 @@ public class AccountView {
                         System.out.println(createAccountDataMessage);
                         String getAccountData = in.next();
                         try {
-                            Account.AccountStatus status = Account.AccountStatus.valueOf(accountStatus);
+                            AccountStatus status = AccountStatus.valueOf(accountStatus);
                             Long getAccountId = Long.parseLong(getIdAccount);
                             Account account = new Account(getAccountId, status, getAccountData);
                             createAccount(account);
@@ -83,7 +84,7 @@ public class AccountView {
                         System.out.println(createAccountDataMessage);
                         String getUpdateAccountData = in.next();
                         try {
-                            Account.AccountStatus status = Account.AccountStatus.valueOf(newAccountStatus);
+                            AccountStatus status = AccountStatus.valueOf(newAccountStatus);
                             Long updateId = Long.parseLong(getUpdateId);
                             Account account = new Account(updateId, status, getUpdateAccountData);
                             updateAccount(account);
@@ -118,7 +119,7 @@ public class AccountView {
                                     System.out.println(createAccountDataMessage);
                                     String deleteAccountData = in.next();
                                     try {
-                                        Account.AccountStatus status = Account.AccountStatus.valueOf(accStatus);
+                                        AccountStatus status = AccountStatus.valueOf(accStatus);
                                         Long getDeleteId = Long.parseLong(deleteIdAccount);
                                         Account account = new Account(getDeleteId, status, deleteAccountData);
                                         deleteAccount(account);

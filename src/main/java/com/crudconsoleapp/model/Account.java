@@ -1,5 +1,7 @@
 package main.java.com.crudconsoleapp.model;
 
+import main.java.com.crudconsoleapp.AccountStatus;
+
 public class Account {
     private Long id;
     private AccountStatus accountStatus;
@@ -42,12 +44,6 @@ public class Account {
                 ", accountStatus=" + accountStatus +
                 ", accountData='" + accountData + '\'' +
                 '}';
-    }
-
-    public enum AccountStatus {
-        ACTIVE,
-        BANNED,
-        DELETED
     }
 }
 

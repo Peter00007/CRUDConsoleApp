@@ -85,8 +85,8 @@ import java.util.List;
         String saveSkillLine = null;
         StringBuffer stringBuffer = new StringBuffer();
         try (BufferedReader reader = new BufferedReader(new FileReader(new File(FILE_PATH)))) {
+            String skillRecords = skill.getId().toString() + "," + skill.getName() + "/";
             while ((saveSkillLine = reader.readLine()) != null) {
-                String skillRecords = skill.getId().toString() + "," + skill.getName() + "/";
                 if (!skillRecords.equals(saveSkillLine)) {
                     stringBuffer.append(saveSkillLine).append("\n");
                 }

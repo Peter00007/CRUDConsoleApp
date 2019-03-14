@@ -1,6 +1,7 @@
 package main.java.com.crudconsoleapp.repository;
 
 
+import main.java.com.crudconsoleapp.AccountStatus;
 import main.java.com.crudconsoleapp.model.Account;
 
 import java.io.*;
@@ -16,7 +17,7 @@ public class AccountRepository {
             String accountFileContent;
             while ((accountFileContent = bufferedReader.readLine()) != null) {
                 String[] accountsRecords = accountFileContent.split(",");
-                Account.AccountStatus status = Account.AccountStatus.valueOf(accountsRecords[1]);
+                AccountStatus status = AccountStatus.valueOf(accountsRecords[1]);
                 list.add(new Account(Long.parseLong(accountsRecords[0]), status, accountsRecords[2].substring(0, accountsRecords[2].length() - 1)));
             }
         } catch (FileNotFoundException e) {
@@ -35,7 +36,7 @@ public class AccountRepository {
                 String[] accountsRecords = accountFileContent.split(",");
                 Long equalsId = Long.parseLong(accountsRecords[0]);
                 if (equalsId == id) {
-                    Account.AccountStatus status = Account.AccountStatus.valueOf(accountsRecords[1]);
+                    AccountStatus status = AccountStatus.valueOf(accountsRecords[1]);
                     account = new Account(Long.parseLong(accountsRecords[0]), status, accountsRecords[2].substring(0, accountsRecords[2].length() - 1));
                     return account;
                 }
@@ -86,8 +87,8 @@ public class AccountRepository {
         String saveAccountLine = null;
         StringBuffer stringBuffer = new StringBuffer();
         try (BufferedReader reader = new BufferedReader(new FileReader(new File(FILE_PATH)))) {
+            String accountRecords = account.getId().toString() + "," + account.getAccountStatus() + "," + account.getAccountData() + "/";
             while ((saveAccountLine = reader.readLine()) != null) {
-                String accountRecords = account.getId().toString() + "," + account.getAccountStatus() + "," + account.getAccountData() + "/";
                 if (!accountRecords.equals(saveAccountLine)) {
                     stringBuffer.append(saveAccountLine).append("\n");
                 }
