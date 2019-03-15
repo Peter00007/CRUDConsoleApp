@@ -1,4 +1,0 @@
-2,Peter/
-1,Vasya/
-3,Dima/
-4,Vasya/

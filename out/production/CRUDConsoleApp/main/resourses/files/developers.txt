@@ -1,3 +1,0 @@
-1,Peter,Fediuk,IT,{3,2,1},1/
-2,Vsya,Va,Geo,{4,2,1},2/
-3,mm,jj,kk,{1},1/
