@@ -2,33 +2,34 @@ package main.java.com.crudconsoleapp.controller;
 
 import main.java.com.crudconsoleapp.model.Skill;
 import main.java.com.crudconsoleapp.repository.SkillRepository;
+import main.java.com.crudconsoleapp.repository.io.JavaIOSkillRepositoryImpl;
 
 import java.util.List;
 
 public class SkillController {
-    SkillRepository skillRepository = new SkillRepository();
+    SkillRepository javaIOSkillRepository = new JavaIOSkillRepositoryImpl();
 
     public Skill getById(Long id) {
-        return skillRepository.getById(id);
+        return javaIOSkillRepository.getById(id);
     }
 
     public List<Skill> getSkill () {
-        return skillRepository.getAll();
+        return javaIOSkillRepository.getAll();
     }
 
     public Skill createSkill(Skill skill) {
-        return skillRepository.save(skill);
+        return javaIOSkillRepository.save(skill);
     }
 
     public Skill updateSkill (Skill skill) {
-        return skillRepository.update(skill);
+        return javaIOSkillRepository.update(skill);
     }
 
     public void deleteByIdSkill(Long id) {
-         skillRepository.delete(id);
+        javaIOSkillRepository.delete(id);
     }
 
     public void deleteSkill(Skill skill) {
-        skillRepository.delete(skill);
+        javaIOSkillRepository.deleteByObject(skill);
     }
 }

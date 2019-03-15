@@ -7,6 +7,9 @@ import main.java.com.crudconsoleapp.model.Skill;
 import main.java.com.crudconsoleapp.repository.AccountRepository;
 import main.java.com.crudconsoleapp.repository.DeveloperRepository;
 import main.java.com.crudconsoleapp.repository.SkillRepository;
+import main.java.com.crudconsoleapp.repository.io.JavaIOAccountRepositoryImpl;
+import main.java.com.crudconsoleapp.repository.io.JavaIODeveloperRepositoryImpl;
+import main.java.com.crudconsoleapp.repository.io.JavaIOSkillRepositoryImpl;
 
 import java.util.HashSet;
 import java.util.Scanner;
@@ -15,16 +18,16 @@ import java.util.Set;
 public class DeveloperView {
     Scanner in;
     DeveloperController developerController;
-    SkillRepository skillRepository;
-    AccountRepository accountRepository;
-    DeveloperRepository developerRepository;
+    SkillRepository javaIOSkillRepository;
+    AccountRepository javaIOAccountRepository;
+    DeveloperRepository javaIODeveloperRepository;
 
     public DeveloperView() {
         in = new Scanner(System.in);
         developerController = new DeveloperController();
-        skillRepository = new SkillRepository();
-        accountRepository = new AccountRepository();
-        developerRepository = new DeveloperRepository();
+        javaIOSkillRepository = new JavaIOSkillRepositoryImpl();
+        javaIOAccountRepository = new JavaIOAccountRepositoryImpl();
+        javaIODeveloperRepository = new JavaIODeveloperRepositoryImpl();
     }
 
     private final String start = "Enter:\n" +
@@ -78,7 +81,7 @@ public class DeveloperView {
                             do {
                                 System.out.println(createDeveloperMessageId);
                                 getIdDeveloper = in.next();
-                                if (developerRepository.getById(Long.parseLong(getIdDeveloper)) == null) {
+                                if (javaIODeveloperRepository.getById(Long.parseLong(getIdDeveloper)) == null) {
                                     f = true;
                                 }
                                 else
@@ -97,8 +100,8 @@ public class DeveloperView {
                             do {
                                 System.out.println(createSkills);
                                 String getIdSkill = in.next();
-                                if (skillRepository.getById(Long.parseLong(getIdSkill)) != null) {
-                                    set.add(skillRepository.getById(Long.parseLong(getIdSkill)));
+                                if (javaIOSkillRepository.getById(Long.parseLong(getIdSkill)) != null) {
+                                    set.add(javaIOSkillRepository.getById(Long.parseLong(getIdSkill)));
                                 }
                                 System.out.println(finishCreateSkill);
                                 finish = in.next();
@@ -107,8 +110,8 @@ public class DeveloperView {
                             do {
                                 System.out.println(createAccount);
                                 getIdAccount = in.next();
-                            } while (accountRepository.getById(Long.parseLong(getIdAccount)) == null);
-                            Developer developer = new Developer(Long.parseLong(getIdDeveloper), getFirsName, getLastName, getSpecialty, set, accountRepository.getById(Long.parseLong(getIdAccount)));
+                            } while (javaIOAccountRepository.getById(Long.parseLong(getIdAccount)) == null);
+                            Developer developer = new Developer(Long.parseLong(getIdDeveloper), getFirsName, getLastName, getSpecialty, set, javaIOAccountRepository.getById(Long.parseLong(getIdAccount)));
                             createSkill(developer);
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -122,7 +125,7 @@ public class DeveloperView {
                             do {
                                 System.out.println(createDeveloperMessageId);
                                 getIdDeveloper = in.next();
-                                if (developerRepository.getById(Long.parseLong(getIdDeveloper)) != null) {
+                                if (javaIODeveloperRepository.getById(Long.parseLong(getIdDeveloper)) != null) {
                                     f = true;
                                 }
                                 else
@@ -141,8 +144,8 @@ public class DeveloperView {
                             do {
                                 System.out.println(createSkills);
                                 String getIdSkill = in.next();
-                                if (skillRepository.getById(Long.parseLong(getIdSkill)) != null) {
-                                    set.add(skillRepository.getById(Long.parseLong(getIdSkill)));
+                                if (javaIOSkillRepository.getById(Long.parseLong(getIdSkill)) != null) {
+                                    set.add(javaIOSkillRepository.getById(Long.parseLong(getIdSkill)));
                                 }
                                 System.out.println(finishCreateSkill);
                                 finish = in.next();
@@ -151,8 +154,8 @@ public class DeveloperView {
                             do {
                                 System.out.println(createAccount);
                                 getIdAccount = in.next();
-                            } while (accountRepository.getById(Long.parseLong(getIdAccount)) == null);
-                            Developer developer = new Developer(Long.parseLong(getIdDeveloper), getFirsName, getLastName, getSpecialty, set, accountRepository.getById(Long.parseLong(getIdAccount)));
+                            } while (javaIOAccountRepository.getById(Long.parseLong(getIdAccount)) == null);
+                            Developer developer = new Developer(Long.parseLong(getIdDeveloper), getFirsName, getLastName, getSpecialty, set, javaIOAccountRepository.getById(Long.parseLong(getIdAccount)));
                             updateDeveloper(developer);
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -182,7 +185,7 @@ public class DeveloperView {
                                         do {
                                             System.out.println(createDeveloperMessageId);
                                             getIdDeveloper = in.next();
-                                        } while (developerRepository.getById(Long.parseLong(getIdDeveloper)) == null);
+                                        } while (javaIODeveloperRepository.getById(Long.parseLong(getIdDeveloper)) == null);
                                         System.out.println(createDeveloperMessageFirstName);
                                         String getFirsName = in.next();
                                         System.out.println(createDeveloperMessageLastName);
@@ -194,8 +197,8 @@ public class DeveloperView {
                                         do {
                                             System.out.println(createSkills);
                                             String getIdSkill = in.next();
-                                            if (skillRepository.getById(Long.parseLong(getIdSkill)) != null) {
-                                                set.add(skillRepository.getById(Long.parseLong(getIdSkill)));
+                                            if (javaIOSkillRepository.getById(Long.parseLong(getIdSkill)) != null) {
+                                                set.add(javaIOSkillRepository.getById(Long.parseLong(getIdSkill)));
                                             }
                                             System.out.println(finishCreateSkill);
                                             finish = in.next();
@@ -204,8 +207,8 @@ public class DeveloperView {
                                         do {
                                             System.out.println(createAccount);
                                             getIdAccount = in.next();
-                                        } while (accountRepository.getById(Long.parseLong(getIdAccount)) == null);
-                                        Developer developer = new Developer(Long.parseLong(getIdDeveloper), getFirsName, getLastName, getSpecialty, set, accountRepository.getById(Long.parseLong(getIdAccount)));
+                                        } while (javaIOAccountRepository.getById(Long.parseLong(getIdAccount)) == null);
+                                        Developer developer = new Developer(Long.parseLong(getIdDeveloper), getFirsName, getLastName, getSpecialty, set, javaIOAccountRepository.getById(Long.parseLong(getIdAccount)));
                                         deleteDeveloper(developer);
                                     } catch (Exception e) {
                                         e.printStackTrace();

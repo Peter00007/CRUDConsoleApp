@@ -2,6 +2,7 @@ package main.java.com.crudconsoleapp.controller;
 
 import main.java.com.crudconsoleapp.model.Developer;
 import main.java.com.crudconsoleapp.repository.DeveloperRepository;
+import main.java.com.crudconsoleapp.repository.io.JavaIODeveloperRepositoryImpl;
 
 import java.util.List;
 
@@ -9,29 +10,29 @@ import java.util.List;
  * Created by User on 14.03.2019.
  */
 public class DeveloperController {
-    DeveloperRepository developerRepository = new DeveloperRepository();
+    DeveloperRepository javaIODeveloperRepository = new JavaIODeveloperRepositoryImpl();
 
     public Developer getById(Long id) {
-        return developerRepository.getById(id);
+        return javaIODeveloperRepository.getById(id);
     }
 
     public List<Developer> getDeveloper () {
-        return developerRepository.getAll();
+        return javaIODeveloperRepository.getAll();
     }
 
     public Developer createDeveloper(Developer developer) {
-        return developerRepository.save(developer);
+        return javaIODeveloperRepository.save(developer);
     }
 
     public Developer updateDeveloper (Developer developer) {
-        return developerRepository.update(developer);
+        return javaIODeveloperRepository.update(developer);
     }
 
     public void deleteByIdDeveloper(Long id) {
-        developerRepository.delete(id);
+        javaIODeveloperRepository.delete(id);
     }
 
     public void deleteDeveloper(Developer developer) {
-        developerRepository.delete(developer);
+        javaIODeveloperRepository.deleteByObject(developer);
     }
 }
