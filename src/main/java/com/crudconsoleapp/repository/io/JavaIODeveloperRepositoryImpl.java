@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 public class JavaIODeveloperRepositoryImpl implements DeveloperRepository {
-    private static final String FILE_PATH = "D:\\JavaCourse\\CRUDConsoleApp\\src\\main\\resourses\\files\\developers.txt";
+    private static final String FILE_PATH = "D:\\JavaCourse\\CRUDConsoleApp\\src\\main\\resources\\files\\developers.txt";
     SkillRepository javaIOSkillRepositoryImpl;
     AccountRepository javaIOAccountRepositoryImpl;
 

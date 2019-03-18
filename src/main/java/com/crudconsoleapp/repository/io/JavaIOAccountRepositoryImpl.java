@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JavaIOAccountRepositoryImpl implements AccountRepository {
-    private static final String FILE_PATH = "D:\\JavaCourse\\CRUDConsoleApp\\src\\main\\resourses\\files\\accounts.txt";
+    private static final String FILE_PATH = "D:\\JavaCourse\\CRUDConsoleApp\\src\\main\\resources\\files\\accounts.txt";
 
     public List<Account> getAll() {
         List<Account> list = new ArrayList<>();

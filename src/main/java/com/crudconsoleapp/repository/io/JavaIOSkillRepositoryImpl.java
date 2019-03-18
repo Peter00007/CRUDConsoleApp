@@ -9,7 +9,7 @@ import java.util.List;
 
 
 public class JavaIOSkillRepositoryImpl implements SkillRepository{
-    private static final String FILE_PATH = "D:\\JavaCourse\\CRUDConsoleApp\\src\\main\\resourses\\files\\skills.txt";
+    private static final String FILE_PATH = "D:\\JavaCourse\\CRUDConsoleApp\\src\\main\\resources\\files\\skills.txt";
 
     public List<Skill> getAll() {
         List<Skill> list = new ArrayList<>();
